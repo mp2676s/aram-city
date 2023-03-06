@@ -78,9 +78,9 @@
     </scene>
 
     <physics name='default_physics' default='0' type='ode'>
-      <max_step_size>0.002</max_step_size>
-      <real_time_factor>1</real_time_factor>
-      <real_time_update_rate>0</real_time_update_rate>
+      <max_step_size>0.015</max_step_size>
+      <!--real_time_factor>1.0</real_time_factor-->
+      <real_time_update_rate>66</real_time_update_rate>
     </physics>
 
     <spherical_coordinates>
@@ -5414,20 +5414,6 @@
     <!-- North block -->
 
     <include>
-      <name>gazebo_75</name>
-      <pose>
-      135.5
-      0
-      5.01
-      0
-      0
-      3.14
-      </pose>
-      <uri>model://gazebo</uri>
-    </include>
-
-
-    <include>
       <name>bus_91</name>
       <pose>
       133.9
@@ -7669,7 +7655,7 @@
 
     <include>
       <name>prius_hybrid_123</name>
-      <pose> -40 -1.9 5.01 0 0 1.57 </pose>
+      <pose> -40 -1.9 5.5 0 0 1.57 </pose>
 
       <uri>model://prius_hybrid_sensors</uri>
       <plugin name="prius" filename="libPriusHybridPlugin.so">
