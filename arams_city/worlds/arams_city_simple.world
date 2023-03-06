@@ -5412,7 +5412,7 @@
     <include>
       <name>city_terrain_1</name>
       <pose>
-      0
+      20
       0
       5.01
       0
@@ -7640,9 +7640,9 @@
 
     <!-- Prius -->
 
-    <include>
+    <!--include>
       <name>prius_hybrid_123</name>
-      <pose> -40 -1.9 6.0 0 0 1.57 </pose>
+      <pose> -40 -1.9 5.01 0 0 1.57 </pose>
 
       <uri>model://prius_hybrid_sensors</uri>
       <plugin name="prius" filename="libPriusHybridPlugin.so">
@@ -7673,7 +7673,7 @@
         <frwheel_steering_d_gain>3e2</frwheel_steering_d_gain>
       </plugin>
 
-    </include>
+    </include-->
 
   </world>
 </sdf>
