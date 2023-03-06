@@ -19,7 +19,7 @@ def generate_launch_description():
                         ]
                     ),
                     launch_arguments={
-                        "world" : os.path.join(pkg_share, "worlds", "arams_city.world"),
+                        "world" : os.path.join(pkg_share, "worlds", "arams_city_simple.world"),
                         "pause" : "False",
                         "gui" : "True",
                         "gdb" : "False",
