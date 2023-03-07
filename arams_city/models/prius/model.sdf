@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
   <model name="prius">
+  <!--robot-->
     <include>
       <uri>model://prius_hybrid</uri>
     </include>
@@ -92,5 +93,6 @@
         </plugin>
       </sensor>
     </link>
+    <!--/robot-->
   </model>
 </sdf>
