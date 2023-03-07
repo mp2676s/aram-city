@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
-  <model name="prius_hybrid_sensors">
+  <model name="prius">
     <include>
       <uri>model://prius_hybrid</uri>
     </include>
