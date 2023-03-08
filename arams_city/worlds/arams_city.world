@@ -7646,7 +7646,7 @@
 
     <!-- Prius -->
 
-    <include>
+    <!--<include>
       <name>Prius</name>
       <pose>
       -40
@@ -7657,7 +7657,7 @@
       1.57
       </pose>
       <uri>model://prius</uri>
-    </include>
+    </include>-->
 
   </world>
 </sdf>

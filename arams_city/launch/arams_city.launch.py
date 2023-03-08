@@ -26,5 +26,13 @@ def generate_launch_description():
                         "verbose" : "True",
                     }.items(),
                 ),
+                IncludeLaunchDescription(
+                    PythonLaunchDescriptionSource(
+                        [
+                            pkg_share,
+                            "/launch/prius_spawn.launch.py"
+                        ]
+                    ),
+                ),
             ])
 
