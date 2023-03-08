@@ -8,6 +8,9 @@ from launch_ros.actions import Node, PushRosNamespace
 def generate_launch_description():
     pkg_share = get_package_share_directory("arams_city")
     prius_description_share = get_package_share_directory("prius_description")
+    print("\n\n")
+    print(prius_description_share)
+    print("\n\n")
 
     return LaunchDescription(
         [
@@ -57,12 +60,6 @@ def generate_launch_description():
                     "-entity", LaunchConfiguration("model_name"),
                 ],
                 # fmt: on
-            ),
-            Node(
-                name="joint_state_broadcaster_spawner",
-                package="controller_manager",
-                executable="spawner",
-                arguments=["joint_state_broadcaster"],
             ),
         ]
     )
