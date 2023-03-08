@@ -3,7 +3,7 @@
   <model name="prius">
   <!--robot-->
     <include>
-      <uri>model://prius</uri>
+      <uri>model://prius_hybrid</uri>
     </include>
 
     <joint name="sensor_joint" type="fixed">
@@ -11,6 +11,65 @@
       <child>sensors</child>
     </joint>
 
+  <!-- sensor links and joints -->
+
+  <link name="laser_link">
+    <inertial>
+      <mass>1</mass>
+      <inertia>
+        <ixx>0.001</ixx><ixy>0.0</ixy><ixz>0.0</ixz><iyy>0.001</iyy><iyz>0.0</iyz><izz>0.001</izz>
+      </inertia>
+    </inertial>
+  </link>
+  <joint name="laser_joint" type="fixed">
+    <parent>prius_hybrid::chassis</parent>
+    <child>laser_link</child>
+    <origin xyz="0 0.4 1.8" rpy="0 0 -1.5707"/>
+  </joint>
+
+  <link name="camera_link">
+    <inertial>
+      <mass>0.5</mass>
+      <inertia>
+        <ixx>0.001</ixx><ixy>0.0</ixy><ixz>0.0</ixz><iyy>0.001</iyy><iyz>0.0</iyz><izz>0.001</izz>
+      </inertia>
+    </inertial>
+  </link>
+  <joint name="camera_joint" type="fixed">
+    <parent>prius_hybrid::chassis</parent>
+    <child>camera_link</child>
+    <origin xyz="0 -0.4 1.4" rpy="0 0.05 -1.5707"/>
+  </joint>
+  <link name="camera_link_optical">
+    <inertial>
+      <mass>0.1</mass>
+      <inertia>
+        <ixx>0.001</ixx><ixy>0.0</ixy><ixz>0.0</ixz><iyy>0.001</iyy><iyz>0.0</iyz><izz>0.001</izz>
+      </inertia>
+    </inertial>
+  </link>
+  <joint name="camera_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.5707 0 -1.5707"/>
+    <parent>camera_link</parent>
+    <child>camera_link_optical</child>
+  </joint>
+
+  <link name="imu_link">
+    <inertial>
+      <mass>0.1</mass>
+      <inertia>
+        <ixx>0.001</ixx><ixy>0.0</ixy><ixz>0.0</ixz><iyy>0.001</iyy><iyz>0.0</iyz><izz>0.001</izz>
+      </inertia>
+    </inertial>
+  </link>
+  <joint name="imu_joint" type="fixed">
+    <parent>prius_hybrid::chassis</parent>
+    <child>imu_link</child>
+    <origin xyz="0 0 0" rpy="0 0 -1.5707"/>
+  </joint>
+
+
+  <!--<gazebo reference="lidar_link">-->
     <link name="sensors">
       <sensor name='center_laser_sensor' type='ray'>
         <ray>
@@ -33,15 +92,17 @@
             <resolution>0.01</resolution>
           </range>
         </ray>
-        <plugin name="lidar_plugin" filename="libgazebo_ros_gpu_laser.so">
+      <!--<plugin name="lidar_plugin" filename="libgazebo_ros_gpu_laser.so">
         <topicName>/prius/laser_scan</topicName>
         <frameName>laser_link</frameName>
-      </plugin>
+      </plugin>-->
         <always_on>1</always_on>
         <update_rate>10</update_rate>
         <visualize>1</visualize>
         <pose frame=''>0 0.4 1.6 0 0 -1.5707</pose>
       </sensor>
+    <!--</gazebo>-->
+      <!--
       <sensor name='front_camera_sensor' type='camera'>
         <update_rate>30</update_rate>
         <camera name='front_camera'>
@@ -60,8 +121,8 @@
             <mean>0</mean>
             <stddev>0.007</stddev>
           </noise>
-        </camera>
-        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        </camera> -->
+        <!--<plugin name="camera_controller" filename="libgazebo_ros_camera.so">
           <alwaysOn>true</alwaysOn>
           <updateRate>0.0</updateRate>
           <cameraName>front_camera</cameraName>
@@ -74,14 +135,15 @@
           <distortionK3>-0.000397</distortionK3>
           <distortionT1>-0.000020</distortionT1>
           <distortionT2>0.0</distortionT2>
-      </plugin>
+      </plugin>-->
+      <!--
         <pose frame=''>0 -0.4 1.4 0 0.05 -1.5707</pose>
       </sensor>
       <sensor name="imu_sensor" type="imu">
         <pose>0 0 0 0 0 0</pose>
         <always_on>1</always_on>
-        <update_rate>100.0</update_rate>
-        <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <update_rate>100.0</update_rate> -->
+        <!--<plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
           <topicName>/prius/imu</topicName>
           <bodyName>imu_link</bodyName>
           <updateRateHZ>100.0</updateRateHZ>
@@ -90,9 +152,9 @@
           <rpyOffset>0 0 0</rpyOffset>
           <frameName>imu_link</frameName>
           <initialOrientationAsReference>false</initialOrientationAsReference>
-        </plugin>
-      </sensor>
+        </plugin>-->
+   <!--   </sensor> -->
     </link>
-    <!--/robot-->
+    <!--</robot>-->
   </model>
 </sdf>
