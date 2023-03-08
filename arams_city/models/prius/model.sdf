@@ -3,7 +3,7 @@
   <model name="prius">
   <!--robot-->
     <include>
-      <uri>model://prius_hybrid</uri>
+      <uri>model://prius</uri>
     </include>
 
     <joint name="sensor_joint" type="fixed">
