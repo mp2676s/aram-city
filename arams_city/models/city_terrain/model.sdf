@@ -18,14 +18,14 @@
 -->
         </geometry>
         <surface>
-          <contact>
+          <!--<contact>
             <ode>
               <kp>1e+06</kp>
               <kd>100</kd>
               <max_vel>1</max_vel>
               <min_depth>0</min_depth>
             </ode>
-          </contact>
+          </contact>-->
           <friction>
             <ode>
               <mu>100</mu>
