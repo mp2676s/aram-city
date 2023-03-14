@@ -21,33 +21,20 @@ find_package(gazebo REQUIRED)
 find_package(gazebo_ros REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(arams_city_plugin_interfaces REQUIRED)
-find_package(prius_msgs REQUIRED)
 
 add_library(SwitchableStopLightPlugin SHARED
   src/switchable_stop_light_plugin.cpp)
-add_library(PriusHybridPlugin SHARED 
-  src/PriusHybridPlugin.cc)
 
 target_include_directories(SwitchableStopLightPlugin PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
 )
-target_include_directories(PriusHybridPlugin PUBLIC include ${GAZEBO_INCLUDE_DIRS} ${SDFormat_INCLUDE_DIRS})
 
 ament_target_dependencies(SwitchableStopLightPlugin
   "gazebo_ros"
   "rclcpp"
   "arams_city_plugin_interfaces"
 )
-ament_target_dependencies(PriusHybridPlugin
-  "gazebo_ros"
-  "rclcpp"
-  "prius_msgs"
-)
-
-ament_export_libraries(PriusHybridPlugin)
-
-ament_environment_hooks("${CMAKE_CURRENT_SOURCE_DIR}/gazebo_plugins.sh.in")
 
 install(TARGETS
   SwitchableStopLightPlugin
