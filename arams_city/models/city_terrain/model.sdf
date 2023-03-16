@@ -17,6 +17,8 @@
           </heightmap>
 -->
         </geometry>
+
+<!--
           <surface>
             <contact>
               <ode/>
@@ -29,8 +31,8 @@
               <ode/>
             </friction>
           </surface>
+-->
 
-<!--
         <surface>
           <contact>
             <ode>
@@ -48,7 +50,7 @@
           </friction>
 
         </surface>
--->
+
       </collision>
 
       <visual name="visual">
