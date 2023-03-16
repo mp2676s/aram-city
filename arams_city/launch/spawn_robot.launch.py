@@ -13,7 +13,7 @@ def generate_launch_description():
     z_pose = LaunchConfiguration('z_pose', default='5.01')
     roll_pose = LaunchConfiguration('roll_pose', default='0.0')
     pitch_pose = LaunchConfiguration('pitch_pose', default='0.0')
-    yaw_pose = LaunchConfiguration('yaw_pose', default='1.57')
+    yaw_pose = LaunchConfiguration('yaw_pose', default='0.0')
 
     return LaunchDescription(
         [
