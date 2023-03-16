@@ -23,9 +23,14 @@ def generate_launch_description():
     # with open(urdf, "r") as infp:
     #     robot_desc = infp.read()
 
+    rviz_path = os.path.join(
+    get_package_share_directory("arams_city"),
+    "rviz", "leo.rviz"
+    )
+
 
     return LaunchDescription(
-            [
+        [
                 # DeclareLaunchArgument(
                 # 'use_sim_time',
                 # default_value='false',
@@ -41,7 +46,11 @@ def generate_launch_description():
             #     default_value="false",
             #     description='Set to "true" to spawn the robot fixed to the world',
             # ),
-
+            DeclareLaunchArgument(
+                'frame',
+                default_value='base_link',
+                description='The fixed frame to be used in RViz'
+            ),
 
             # Node(
             #     name="robot_state_publisher",
@@ -62,51 +71,68 @@ def generate_launch_description():
             # ),
 
                 
-                IncludeLaunchDescription(
-                    PythonLaunchDescriptionSource(
-                        [
-                            gazebo_ros_share,
-                            "/launch/gazebo.launch.py",
-                        ]
-                    ),
-                    launch_arguments={
-                        "world" : os.path.join(pkg_share, "worlds", "arams_city.world"),
-                        "pause" : "False",
-                        "gui" : "True",
-                        "gdb" : "False",
-                        "verbose" : "True",
-                    }.items(),
+            IncludeLaunchDescription(
+                PythonLaunchDescriptionSource(
+                    [
+                        gazebo_ros_share,
+                        "/launch/gazebo.launch.py",
+                    ]
                 ),
+                launch_arguments={
+                    "world" : os.path.join(pkg_share, "worlds", "arams_city.world"),
+                    "pause" : "False",
+                    "gui" : "True",
+                    "gdb" : "False",
+                    "verbose" : "True",
+                }.items(),
+            ),
 
-                IncludeLaunchDescription(
-                    PythonLaunchDescriptionSource(
-                        os.path.join(get_package_share_directory("leo_gazebo"), "launch", "spawn_robot.launch.py",
-                                    )
-                    ),
-                    launch_arguments={
-                        "x_pose": "-47.0",
-                        "y_pose": "1",
-                        "z_pose": "5.01",
-                        "roll_pose": "0",
-                        "pitch_pose": "0",
-                        "yaw_pose": "0",                                      
-                    }.items()
+            IncludeLaunchDescription(
+                PythonLaunchDescriptionSource(
+                    os.path.join(get_package_share_directory("leo_gazebo"), "launch", "spawn_robot.launch.py",
+                                )
                 ),
+                launch_arguments={
+                    "x_pose": "-50.0",
+                    "y_pose": "0.0",
+                    "z_pose": "5.01",
+                    "roll_pose": "0",
+                    "pitch_pose": "0",
+                    "yaw_pose": "0",                                      
+                }.items()
+            ),
 
+            Node(
+                package="rviz2",
+                executable="rviz2",
+                name="rviz2",
+                arguments=[
+                    "-d", rviz_path,
+                    "--fixed-frame", LaunchConfiguration(variable_name="frame")
+                ],
+                output="screen",
+            ),
 
-                # IncludeLaunchDescription(
-                #     PythonLaunchDescriptionSource(
-                #         os.path.join(get_package_share_directory("car_demo"), "launch", "spawn_prius.launch.py",
-                #                     )
-                #     ),
-                #     launch_arguments={
-                #         "x_pose": "1",
-                #         "y_pose": "1",
-                #         "z_pose": "5.01",
-                #         "roll_pose": "0",
-                #         "pitch_pose": "0",
-                #         "yaw_pose": "0",                                      
-                #     }.items()
-                # ),
-            ])
+            Node(
+                package="rqt_publisher",
+                executable="rqt_publisher",
+                name="rqt_publisher",
+                output="screen",
+            ),
+
+            # IncludeLaunchDescription(
+            #     PythonLaunchDescriptionSource(
+            #         os.path.join(get_package_share_directory("car_demo"), "launch", "spawn_prius.launch.py",
+            #                     )
+            #     ),
+            #     launch_arguments={
+            #         "x_pose": "1",
+            #         "y_pose": "1",
+            #         "z_pose": "5.01",
+            #         "roll_pose": "0",
+            #         "pitch_pose": "0",
+            #         "yaw_pose": "0",                                      
+            #     }.items()
+            # ),
+        ])
 
