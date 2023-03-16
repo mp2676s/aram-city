@@ -87,20 +87,6 @@ def generate_launch_description():
                 }.items(),
             ),
 
-            IncludeLaunchDescription(
-                PythonLaunchDescriptionSource(
-                    os.path.join(get_package_share_directory("leo_gazebo"), "launch", "spawn_robot.launch.py",
-                                )
-                ),
-                launch_arguments={
-                    "x_pose": "-50.0",
-                    "y_pose": "0.0",
-                    "z_pose": "5.01",
-                    "roll_pose": "0",
-                    "pitch_pose": "0",
-                    "yaw_pose": "0",                                      
-                }.items()
-            ),
 
             Node(
                 package="rviz2",
@@ -126,7 +112,7 @@ def generate_launch_description():
                 name="traffic_light_controller",
                 output="screen",
             ),
-            
+
             # IncludeLaunchDescription(
             #     PythonLaunchDescriptionSource(
             #         os.path.join(get_package_share_directory("car_demo"), "launch", "spawn_prius.launch.py",
