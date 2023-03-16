@@ -28,6 +28,10 @@
       <background>0.35 0.35 0.35 1.0</background>
     </scene>
 
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+
     <physics name='default_physics' default='0' type='ode'>
       <max_step_size>0.015</max_step_size>
       <!--real_time_factor>1.0</real_time_factor-->
@@ -5365,7 +5369,7 @@
       <pose>
       20
       0
-      5.01
+      4.99
       0
       0
       0
