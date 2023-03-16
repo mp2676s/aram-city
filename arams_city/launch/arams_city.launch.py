@@ -120,6 +120,13 @@ def generate_launch_description():
                 output="screen",
             ),
 
+            Node(
+                package="arams_city",
+                executable="traffic_light_node.py",
+                name="traffic_light_controller",
+                output="screen",
+            ),
+            
             # IncludeLaunchDescription(
             #     PythonLaunchDescriptionSource(
             #         os.path.join(get_package_share_directory("car_demo"), "launch", "spawn_prius.launch.py",
