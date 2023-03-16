@@ -22,7 +22,8 @@ find_package(gazebo_ros REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(arams_city_plugin_interfaces REQUIRED)
 
-add_library(SwitchableStopLightPlugin SHARED src/switchable_stop_light_plugin.cpp)
+add_library(SwitchableStopLightPlugin SHARED
+  src/switchable_stop_light_plugin.cpp)
 
 target_include_directories(SwitchableStopLightPlugin PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
