@@ -5,8 +5,7 @@ from launch.substitutions import LaunchConfiguration, Command
 from launch_ros.actions import Node, PushRosNamespace
 
 def generate_launch_description():
-    pkg_share = get_package_share_directory("leo_gazebo")
-    leo_description_share = get_package_share_directory("leo_description")
+    prius_description_share = get_package_share_directory("prius_description")
 
     x_pose = LaunchConfiguration('x_pose', default='-50.0')
     y_pose = LaunchConfiguration('y_pose', default='0.0')
@@ -19,7 +18,7 @@ def generate_launch_description():
         [
             DeclareLaunchArgument(
                 name="model",
-                default_value=[leo_description_share, "/urdf/leo_sim.urdf.xacro"],
+                default_value=[prius_description_share, "/urdf/prius.urdf"],
                 description="Absolute path to robot urdf.xacro file",
             ),
             DeclareLaunchArgument(
@@ -32,7 +31,7 @@ def generate_launch_description():
             ),
             DeclareLaunchArgument(
                 name="model_name",
-                default_value="leo",
+                default_value="prius",
                 description="The name of the spawned model in Gazebo",
             ),
             PushRosNamespace(LaunchConfiguration("robot_ns")),
