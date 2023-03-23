@@ -43,7 +43,7 @@ ros2 launch arams_city arams_city.launch.py
 ros2 launch arams_city spawn_leo.launch.py
 # wait until the  commandline shows "[INFO] [spawn_entity.py]: process has finished cleanly"
 
-ros2 launch arams_city spawn_controllers.launch.py
+ros2 launch arams_city controller_spawner.launch.py
 # wait until the commandline did finish all commands
 # simulation is running now! have fun!
 ```
