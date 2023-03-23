@@ -100,9 +100,9 @@ def generate_launch_description():
             ),
 
             Node(
-                package="rqt_publisher",
-                executable="rqt_publisher",
-                name="rqt_publisher",
+                package="rqt_robot_steering",
+                executable="rqt_robot_steering",
+                name="rqt_robot_steering",
                 output="screen",
             ),
 
