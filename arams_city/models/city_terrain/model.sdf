@@ -17,6 +17,7 @@
           </heightmap>
 -->
         </geometry>
+          <max_contacts>10</max_contacts>
 
 <!--
           <surface>
@@ -31,15 +32,15 @@
               <ode/>
             </friction>
           </surface>
--->
 
+-->
         <surface>
           <contact>
             <ode>
-              <kp>1e+06</kp>
-              <kd>100</kd>
-              <max_vel>1</max_vel>
-              <min_depth>0</min_depth>
+              <kp>1e15</kp>
+              <kd>1e13</kd>
+              <max_vel>10</max_vel>
+              <min_depth>0.001</min_depth>
             </ode>
           </contact>
           <friction>
