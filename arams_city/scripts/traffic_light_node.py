@@ -19,44 +19,46 @@ class MinimalClientAsync(Node):
         # y road traffic lights        
         self.tl475 = self.create_client(SetStopLightColor, 'switch_475/set_color')
         while not self.tl475.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info('service for traffic light no. 475 not available, waiting again...')
         self.tl476 = self.create_client(SetStopLightColor, 'switch_476/set_color')
         while not self.tl476.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info('service for traffic light no. 476 not available, waiting again...')
         self.tl477 = self.create_client(SetStopLightColor, 'switch_477/set_color')
         while not self.tl477.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info('service for traffic light no. 477 not available, waiting again...')
         self.tl478 = self.create_client(SetStopLightColor, 'switch_478/set_color')        
         while not self.tl478.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info('service for traffic light no. 478 not available, waiting again...')
         self.tl479 = self.create_client(SetStopLightColor, 'switch_479/set_color')
         while not self.tl479.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info('service for traffic light no. 479 not available, waiting again...')
         self.tl480 = self.create_client(SetStopLightColor, 'switch_480/set_color')
         while not self.tl480.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info('service for traffic light no. 480 not available, waiting again...')
         self.tl481 = self.create_client(SetStopLightColor, 'switch_481/set_color')
         while not self.tl481.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info('service for traffic light no. 481 not available, waiting again...')
         # x road traffic lights
         self.tl482 = self.create_client(SetStopLightColor, 'switch_482/set_color')
         while not self.tl482.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info('service for traffic light no. 482 not available, waiting again...')
         self.tl483 = self.create_client(SetStopLightColor, 'switch_483/set_color')
         while not self.tl483.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info('service for traffic light no. 483 not available, waiting again...')
         self.tl484 = self.create_client(SetStopLightColor, 'switch_484/set_color')
         while not self.tl484.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info('service for traffic light no. 484 not available, waiting again...')
         self.tl485 = self.create_client(SetStopLightColor, 'switch_485/set_color')
         while not self.tl485.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info('service for traffic light no. 485 not available, waiting again...')
         self.tl486 = self.create_client(SetStopLightColor, 'switch_486/set_color')
         while not self.tl486.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info('service for traffic light no. 486 not available, waiting again...')
         self.tl487 = self.create_client(SetStopLightColor, 'switch_487/set_color')
         while not self.tl487.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info('service for traffic light no. 487 not available, waiting again...')
+        self.get_logger().info('All traffig lights are now available!')
+
 
         self.req = SetStopLightColor.Request()
 
