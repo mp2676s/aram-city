@@ -7,7 +7,7 @@ from launch_ros.actions import Node, PushRosNamespace
 def generate_launch_description():
     prius_description_share = get_package_share_directory("prius_description")
 
-    x_pose = LaunchConfiguration('x_pose', default='-50.0')
+    x_pose = LaunchConfiguration('x_pose', default='-46.0')
     y_pose = LaunchConfiguration('y_pose', default='0.0')
     z_pose = LaunchConfiguration('z_pose', default='5.01')
     roll_pose = LaunchConfiguration('roll_pose', default='0.0')
@@ -69,5 +69,6 @@ def generate_launch_description():
                 ],
                 # fmt: on
             ),
+            
         ]
     )
